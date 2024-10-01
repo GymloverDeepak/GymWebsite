@@ -1,8 +1,10 @@
 import React from "react";
+import Sidebar from "./Sidebar";
 
 function Home() {
   return (
     <>
+      <Sidebar />
       <div className="App">
         <body className="bg-white">
           <div className="container-fluid p-0">
