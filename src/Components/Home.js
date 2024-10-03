@@ -18,7 +18,7 @@ function Home() {
                   <img className="w-100" src="img/carousel-1.jpg" alt="Image" />
                   <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <h3 className="text-primary text-capitalize m-0">
-                      Gym & Fitness Center
+                      Ultimate-Fitness-Gym
                     </h3>
                     <h2 className="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">
                       Best Gym In Town
