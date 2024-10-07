@@ -1,7 +1,7 @@
 import React from "react";
 import Bmi from "./Bmi";
 import Footer from "./Footer";
-
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <>
@@ -23,12 +23,11 @@ function Home() {
                     <h2 className="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">
                       Best Gym In Town
                     </h2>
-                    <a
-                      href=""
+                    <Link to="/contact"
                       className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5"
                     >
                       Join Us Now
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="carousel-item">
