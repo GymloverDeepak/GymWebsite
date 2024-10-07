@@ -1,0 +1,48 @@
+.bmi {
+    padding-right: 20px;
+    position: absolute;
+    box-sizing: border-box;
+        content: "";
+        height: 100%;
+        top: 0;
+        left: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(225, 145, 145, 0.5)),
+        url(/public/img/carousel-1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
+    }
+    .bmi::after {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/public/img/carousel-1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+    }
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -5px;
+        margin-left: -5px;
+        padding-left: 20px;
+    }
+    .col{
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .form-row > .col, 
+    .form-row > [class*=col-] {
+      padding-right: 5px;
+      padding-left: 5px;
+    }

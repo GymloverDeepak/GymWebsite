@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "./Sidebar";
+import Bmi from "./Bmi";
+import Footer from "./Footer";
 
 function Home() {
   return (
     <>
-      <Sidebar />
       <div className="App">
         <body className="bg-white">
           <div className="container-fluid p-0">
@@ -306,7 +306,7 @@ function Home() {
             <p className="text-white mb-4">
               Subscribe and get Our latest Updates in your inbox
             </p>
-            <form className="form-inline justify-content-center mb-5">
+            {/* <form className="form-inline justify-content-center mb-5">
               <div className="input-group">
                 <input
                   type="text"
@@ -319,7 +319,7 @@ function Home() {
                   </button>
                 </div>
               </div>
-            </form>
+            </form> */}
           </div>
 
           <div className="container gym-feature py-5">
@@ -773,75 +773,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="container-fluid position-relative bmi my-5">
-            <div className="container">
-              <div className="row px-3 align-items-center">
-                <div className="col-md-6">
-                  <div className="pr-md-3 d-none d-md-block">
-                    <h4 className="text-primary">Body Mass Index </h4>
-                    <h4 className="display-4 text-white font-weight-bold mb-4">
-                      Whate is BMI?
-                    </h4>
-                    <p className="m-0 text-white">
-                      Body mass index is a value derived from the mass and
-                      height of a person. The BMI is defined as the body mass
-                      divided by the square of the body height, and is expressed
-                      in units of kg/m², resulting from mass in kilograms and
-                      height in metres
-                    </p>
-                  </div>
-                </div>
-                <div className="col-md-6 bg-secondary py-5">
-                  <div className="py-5 px-3">
-                    <h1 className="mb-4 text-white">Calculate your BMI</h1>
-                    <form>
-                      <div className="form-row">
-                        <div className="col form-group">
-                          <input
-                            type="text"
-                            className="form-control form-control-lg bg-dark text-white"
-                            placeholder="Weight (KG)"
-                          />
-                        </div>
-                        <div className="col form-group">
-                          <input
-                            type="text"
-                            className="form-control form-control-lg bg-dark text-white"
-                            placeholder="Height (CM)"
-                          />
-                        </div>
-                      </div>
-                      <div className="form-row">
-                        <div className="col form-group">
-                          <input
-                            type="text"
-                            className="form-control form-control-lg bg-dark text-white"
-                            placeholder="Age"
-                          />
-                        </div>
-                        <div className="col form-group">
-                          <select className="custom-select custom-select-lg bg-dark text-muted">
-                            <option>Gender</option>
-                            <option>Mal</option>
-                            <option>Female</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="form-row">
-                        <div className="col">
-                          <input
-                            type="button"
-                            className="btn btn-lg btn-block btn-dark border-light"
-                            value="Calculate Now"
-                          />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <Bmi/>
 
           <div className="container pt-5 team">
             <div className="d-flex flex-column text-center mb-5">
@@ -1198,8 +1130,8 @@ function Home() {
               </div>
             </div>
           </div>
-
-          <div className="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
+          <Footer />
+          {/* <div className="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-black">
             <div className="row pt-5">
               <div className="col-lg-3 col-md-6 mb-5">
                 <h4 className="text-primary mb-4">Get In Touch</h4>
@@ -1244,22 +1176,22 @@ function Home() {
                   </a>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6 mb-5">
+              <div className="col-lg-3 col-md-6 mb-5 text-black">
                 <h4 className="text-primary mb-4">Quick Links</h4>
                 <div className="d-flex flex-column justify-content-start">
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Home
                   </a>
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>About Us
                   </a>
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Our Features
                   </a>
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Workouts
                   </a>
-                  <a className="text-white" href="#">
+                  <a className="text-black" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Contact Us
                   </a>
                 </div>
@@ -1267,47 +1199,46 @@ function Home() {
               <div className="col-lg-3 col-md-6 mb-5">
                 <h4 className="text-primary mb-4">Popular Links</h4>
                 <div className="d-flex flex-column justify-content-start">
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Home
                   </a>
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>About Us
                   </a>
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Our Features
                   </a>
-                  <a className="text-white mb-2" href="#">
+                  <a className="text-black mb-2" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Workouts
                   </a>
-                  <a className="text-white" href="#">
+                  <a className="text-black" href="#">
                     <i className="fa fa-angle-right mr-2"></i>Contact Us
                   </a>
                 </div>
               </div>
               <div className="col-lg-3 col-md-6 mb-5">
                 <h4 className="text-primary mb-4">Opening Hours</h4>
-                <h5 className="text-white">Monday - Saturday</h5>
+                <h5 className="text-black">Monday - Saturday</h5>
                 <p>5.00 AM - 9.00 PM</p>
-                <h5 className="text-white"> Sunday</h5>
+                <h5 className="text-black"> Sunday</h5>
                 <p>Off - Day</p>
               </div>
             </div>
             <div className="container border-top border-dark pt-5">
-              <p className="m-0 text-center text-white">
-                &copy;{" "}
-                <a className="text-white font-weight-bold" href="#">
-                  Gymlover.in
+              <p className="m-0 text-center text-black">
+                <a className="text-black font-weight-bold" href="#">
+                  ULTIMATE FITNESS GYM
                 </a>
-                . All Rights Reserved. Designed by
+                ... All Rights Reserved. Designed by
                 <a
-                  className="text-white font-weight-bold"
+                  className="text-black font-weight-bold"
                   href="https://htmlcodex.com"
                 >
-                  Gymlover
+                  - GymloverDeepak
                 </a>
               </p>
             </div>
-          </div>
+          </div> */}
 
           <a href="#" className="btn btn-outline-primary back-to-top">
             <i className="fa fa-angle-double-up"></i>
