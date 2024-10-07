@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="container-fluid p-0 nav-bar">
-      <nav className="navbar navbar-expand-lg bg-none navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark">
+        {/* Brand */}
         <a href="/" className="navbar-brand">
           <h1
             className="m-0 display-4 font-weight-bold text-uppercase"
@@ -12,9 +13,11 @@ const Header = () => {
             ULTIMATE-FITNESS-GYM
           </h1>
         </a>
+
+        {/* Toggler button for small screens */}
         <button
-          type="button"
           className="navbar-toggler"
+          type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse"
@@ -23,38 +26,43 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+        {/* Collapsible content */}
         <div
           className="collapse navbar-collapse justify-content-between"
           id="navbarCollapse"
-          style={{
-            paddingLeft: "100px",
-            letterSpacing: "3px",
-            wordSpacing: "29px",
-            paddingRight: "92px",
-          }}
         >
-          <div
-            className="navbar-nav ml-auto p-3 bg-secondary"
+          <ul className="navbar-nav ml-auto p-3 bg-secondary" 
             style={{
               width: "100%",
               borderRadius: "37px",
               fontWeight: "bold",
-              content: "left",
-            }}
-          >
-            <Link to="/" className="nav-item nav-link active">
-              Home
-            </Link>
-            <Link to="/about" className="nav-item nav-link">
-              AboutUs
-            </Link>
-            <Link to="/features" className="nav-item nav-link">
-              Our-Features
-            </Link>
-            <Link to="/workouts" className="nav-item nav-link">
-              Workouts
-            </Link>
-            <div className="nav-item dropdown">
+            }}>
+            
+            {/* Navigation links */}
+            <li className="nav-item">
+              <Link to="/" className="nav-link active">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">
+                About Us
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/features" className="nav-link">
+                Our Features
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/workouts" className="nav-link">
+                Workouts
+              </Link>
+            </li>
+
+            {/* Dropdown for Diet-Plan */}
+            <li className="nav-item dropdown">
               <Link
                 to="#"
                 className="nav-link dropdown-toggle"
@@ -65,29 +73,31 @@ const Header = () => {
               >
                 Diet-Plan
               </Link>
-              <ul
-                className="dropdown-menu text-capitalize"
-                aria-labelledby="navbarDropdown"
-              >
+              <ul className="dropdown-menu text-capitalize">
                 <li>
                   <Link to="/weight-loss" className="dropdown-item">
-                    Weight-Loss
+                    Weight Loss
                   </Link>
                 </li>
                 <li>
                   <Link to="/weight-gain" className="dropdown-item">
-                    Weight-Gain
+                    Weight Gain
                   </Link>
                 </li>
               </ul>
-            </div>
-            <Link to="/contact" className="nav-item nav-link">
-              Contact
-            </Link>
-            <Link to="/feedback" className="nav-item nav-link">
-              FeedBack
-            </Link>
-          </div>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link">
+                Contact
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/feedback" className="nav-link">
+                Feedback
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>
