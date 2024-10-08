@@ -9,7 +9,7 @@ function Client() {
         <div className="col-md-6 bg-secondary">
           <div
             className="d-flex align-items-center px-3"
-            style={{ height: "500px;" }}
+            style={{ height: "500px" }}
           >
             <div
               id="carouselId"

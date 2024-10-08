@@ -1,5 +1,4 @@
 import React from 'react'
-
 function Feedback() {
   return (
     <div className='bg-white'>
@@ -48,20 +47,20 @@ function Feedback() {
                 <h3 className="mb-4 font-weight-bold">Leave a comment</h3>
                 <form>
                     <div className="form-group">
-                        <label for="name">Name *</label>
+                        <label htmlFor="name">Name *</label>
                         <input type="text" className="form-control" id="name"/>
                     </div>
                     <div className="form-group">
-                        <label for="email">Email *</label>
+                        <label htmlFor="email">Email *</label>
                         <input type="email" className="form-control" id="email"/>
                     </div>
                     <div className="form-group">
-                        <label for="website">Website</label>
+                        <label htmlFor="website">Website</label>
                         <input type="url" className="form-control" id="website"/>
                     </div>
 
                     <div className="form-group">
-                        <label for="message">Message *</label>
+                        <label htmlFor="message">Message *</label>
                         <textarea id="message" cols="30" rows="5" className="form-control"></textarea>
                     </div>
                     <div className="form-group">
