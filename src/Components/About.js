@@ -1,8 +1,7 @@
 import React from 'react'
 
 function About() {
-  return (<>
-    <body className="bg-white">
+  return (<div className="bg-white">
    <div className="container py-5">
         <div className="row align-items-center">
             <div className="col-lg-6">
@@ -187,19 +186,7 @@ function About() {
     </div>
   
     <a href="#" className="btn btn-outline-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <script src="js/main.js"></script>
-</body>
-  </>
+  </div>
     
   )
 }

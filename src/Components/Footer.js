@@ -6,16 +6,16 @@ function Footer() {
       <div className="row pt-5">
         <div className="col-lg-3 col-md-6 mb-5">
           <h4 className="mb-4 new1">Get In Touch</h4>
-          <p>
-            <i className="fa fa-map-marker-alt mr-2"></i>Ultimate Fitness Gym
+          <a href="https://maps.app.goo.gl/1wFZ6HmoyBskyLqDA">
+            <a className="fa fa-map-marker-alt mr-2" ></a>  Ultimate Fitness Gym
             Dhatir Palwal 121102
-          </p>
+          </a>
           <p>
             <i className="fa fa-phone-alt mr-2"></i>+91 9812087010
           </p>
-          <p>
+          <a>
             <i className="fa fa-envelope mr-2"></i>gymlover7010@gmail.com
-          </p>
+          </a>
           <div className="d-flex justify-content-start mt-4">
             <a
               className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
@@ -50,19 +50,19 @@ function Footer() {
         <div className="col-lg-3 col-md-6 mb-5">
           <h4 className="new1 mb-4">Quick Links</h4>
           <div className="d-flex flex-column justify-content-start">
-            <a className="text-white mb-2" href="#">
+            <a className="text-white mb-2" href="/">
               <i className="fa fa-angle-right mr-2"></i>Home
             </a>
-            <a className="text-white mb-2" href="#">
+            <a className="text-white mb-2" href="/about">
               <i className="fa fa-angle-right mr-2"></i>About Us
             </a>
-            <a className="text-white mb-2" href="#">
+            <a className="text-white mb-2" href="/features">
               <i className="fa fa-angle-right mr-2"></i>Our Features
             </a>
-            <a className="text-white mb-2" href="#">
+            <a className="text-white mb-2" href="/workouts">
               <i className="fa fa-angle-right mr-2"></i>Workouts
             </a>
-            <a className="text-white" href="#">
+            <a className="text-white" href="/contact">
               <i className="fa fa-angle-right mr-2"></i>Contact Us
             </a>
           </div>
