@@ -1,0 +1,69 @@
+.mb-5, .my-5 {
+    margin-bottom: 3rem !important;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.new2 {
+    color: #fff !important;
+}
+
+.new3{
+    font-weight: 700 !important;
+}
+.new4{
+    background-color: #111 !important;
+}
+.testimonial::after{
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/public/img/carousel-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* z-index: -1; */
+}
+.new5{
+    display: ruby;
+}
+.carousel-indicators {
+  display: none;
+}
+.testimonial {
+    margin: 2rem 0;
+  }
+  
+  /* Adjust carousel indicators */
+  .new5 li {
+    background-color: #15b51b;
+  }
+  
+  @media (max-width: 767.98px){
+    .testimonial .carousel-inner .carousel-item {
+      text-align: center;
+    }
+  
+    /* Ensure proper padding on smaller screens */
+    .pl-md-3 {
+      padding-left: 15px !important;
+    }
+  
+    .testimonial-text {
+      padding: 15px;
+    }
+  }
+  
+  @media (min-width: 768px){
+    .testimonial-text {
+      padding: 20px 30px;
+    }
+  }
+  

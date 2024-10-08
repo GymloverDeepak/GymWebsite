@@ -39,3 +39,24 @@
 .new1{
   color: #e31c25 !important;
 }
+.navbar-toggler{
+  background-color: #000;
+}
+.gain-header{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../public/img/gain.png);
+  background-size: cover;
+}
+.loss-header{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../public/img/loss.png);
+  background-size: cover;
+  height: fit-content;
+}
+.workout-header{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../public/img/feature-4.jpg);
+  background-size: contain;
+}
+.new6{
+  color: #075dffc9;
+  font-weight: bold;
+  font-style: oblique;
+}

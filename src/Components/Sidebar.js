@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="container-fluid p-0 nav-bar">
+    <div className="container-fluid p-0 nav-ba bg-white">
       <nav className="navbar navbar-expand-lg navbar-dark">
-        {/* Brand */}
         <a href="/" className="navbar-brand">
           <h1
-            className="m-0 display-4 font-weight-bold text-uppercase"
-            style={{ color: "#15b51b", fontWeight: "bold" }}
+            className="m-0 display-4 text-uppercase new6"
           >
             ULTIMATE-FITNESS-GYM
           </h1>
@@ -30,7 +28,7 @@ const Header = () => {
         {/* Collapsible content */}
         <div
           className="collapse navbar-collapse justify-content-between"
-          id="navbarCollapse"
+          id="navbarCollapse" style={{paddingLeft: "131px"}}
         >
           <ul className="navbar-nav ml-auto p-3 bg-secondary" 
             style={{

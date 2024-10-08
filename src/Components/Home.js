@@ -2,6 +2,7 @@ import React from "react";
 import Bmi from "./Bmi";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import Client from "./Client";
 function Home() {
   return (
     <>
@@ -15,36 +16,35 @@ function Home() {
             >
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img className="w-100" src="img/carousel-1.jpg" alt="Image" />
+                  <img className="w-100" src="img/cover2.png" alt="Image" />
                   <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <h3 className="text-primary text-capitalize m-0">
+                    {/* <h3 className="text-primary text-capitalize m-0">
                       Ultimate-Fitness-Gym
                     </h3>
                     <h2 className="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">
                       Best Gym In Town
-                    </h2>
+                    </h2> */}
                     <Link to="/contact"
-                      className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5"
+                      className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5 btn btn-primary"
                     >
                       Join Us Now
                     </Link>
                   </div>
                 </div>
                 <div className="carousel-item">
-                  <img className="w-100" src="img/carousel-2.jpg" alt="Image" />
+                  <img className="w-100" src="img/cover1.png" alt="Image" />
                   <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <h3 className="text-primary text-capitalize m-0">
+                    {/* <h3 className="text-primary text-capitalize m-0">
                       Gym & Fitness Center
-                    </h3>
-                    <h2 className="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">
+                    </h3> */}
+                    {/* <h2 className="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">
                       Get Body In Shape
-                    </h2>
-                    <a
-                      href=""
-                      className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5"
+                    </h2> */}
+                    <Link to="/contact"
+                      className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5 btn btn-primary"
                     >
                       Join Us Now
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -127,16 +127,15 @@ function Home() {
                     <i className="flaticon-barbell display-2 text-primary"></i>
                     <h4 className="font-weight-bold">Certified GYM Center</h4>
                     <p>
-                      Mr Delhi 2023 in Man Physic Gold Medal in India Classic in
-                      Man Physic
+                      Mr Delhi 2023 in Man Physique Gold Medal in India Classic in
+                      Man Physique
                     </p>
                   </div>
                   <div className="col-sm-6">
                     <i className="flaticon-medal display-2 text-primary"></i>
                     <h4 className="font-weight-bold">Award Winning</h4>
-                    <p>
-                      Mr Delhi 2023 in Man Physic Gold Medal in India Classic in
-                      Man Physic
+                    <p>Gold Medal in India Classic in
+                      Man Physique 2023
                     </p>
                   </div>
                 </div>
@@ -158,14 +157,12 @@ function Home() {
                   <div className="">
                     <h2 className="text-white mb-3">Progression</h2>
                     <p>
-                      {" "}
                       I achieved my first Goal in 2023 when i am announced Mr.
-                      Delhi in Man Physic
+                      Delhi in Man Physique
                     </p>
                     <p>
-                      {" "}
                       2nd achieved my Goal in 2023 when i am announced Gold
-                      Medal For India Classic in Man Physic
+                      Medal For India Classic in Man Physique
                     </p>
                   </div>
                 </div>
@@ -940,110 +937,7 @@ function Home() {
               </div>
             </div>
           </div>
-
-          <div className="container-fluid position-relative testimonial my-5">
-            <div className="container">
-              <div className="row px-3 align-items-center">
-                <div className="col-md-6 bg-secondary">
-                  <div
-                    className="d-flex align-items-center px-3"
-                    style={{ height: "450px;" }}
-                  >
-                    <div
-                      id="carouselId"
-                      className="carousel slide"
-                      data-ride="carousel"
-                    >
-                      <ol className="carousel-indicators">
-                        <li
-                          data-target="#carouselId"
-                          data-slide-to="0"
-                          className="active"
-                        ></li>
-                        <li data-target="#carouselId" data-slide-to="1"></li>
-                        <li data-target="#carouselId" data-slide-to="2"></li>
-                      </ol>
-                      <div className="carousel-inner" role="listbox">
-                        <div className="carousel-item active">
-                          <div className="d-flex align-items-center mb-4 text-white">
-                            <img
-                              width="80"
-                              height="80"
-                              className="rounded-circle bg-dark p-2"
-                              src="img/Neeraj.jpeg"
-                              alt="Image"
-                            />
-                            <div className="pl-4">
-                              <h4 className="text-primary">Neeraj</h4>
-                              <p className="m-0">Manager</p>
-                            </div>
-                          </div>
-                          <div className="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
-                            i am so happy that you provide me best training now
-                            i am good Health and Fitness
-                            <li>Great GymloverDeepak</li>
-                          </div>
-                        </div>
-                        <div className="carousel-item">
-                          <div className="d-flex align-items-center mb-4 text-white">
-                            <img
-                              width="80"
-                              height="80"
-                              className="rounded-circle bg-dark p-2"
-                              src="img/Ranjeet.jpeg"
-                              alt="Image"
-                            />
-                            <div className="pl-4">
-                              <h4 className="text-primary">Ranjeet</h4>
-                              <p className="m-0">Cab-Driver</p>
-                            </div>
-                          </div>
-                          <div className="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
-                            follow you Diet plan and workout i will changed my
-                            BodyWeight Now i am fit and fine !
-                            <li>i am so happy with you GymloverDeepak</li>
-                          </div>
-                        </div>
-                        <div className="carousel-item">
-                          <div className="d-flex align-items-center mb-4 text-white">
-                            <img
-                              width="80"
-                              height="80"
-                              className="rounded-circle bg-dark p-2"
-                              src="img/testimonial-1.jpeg"
-                              alt="Image"
-                            />
-                            <div className="pl-4">
-                              <h4 className="text-primary">Sona Khan</h4>
-                              <p className="m-0">Digital Markiting </p>
-                            </div>
-                          </div>
-                          <div className="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
-                            because of you i changed my body Shape and now i
-                            Have a Fit Body
-                            <li>Thanks GymloverDeepak</li>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="pl-md-3 d-none d-md-block">
-                    <h4 className="text-primary">Deepak</h4>
-                    <h4 className="display-4 mb-4 text-white font-weight-bold">
-                      What Our Clients Say?
-                    </h4>
-                    <p className="m-0 text-white">
-                      we are happy 😊 to training with you because you achieve
-                      your fitness goal as per you tips{" "}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+           <Client/>
           <div className="container pt-5">
             <div className="d-flex flex-column text-center mb-5">
               <h4 className="text-primary font-weight-bold">Our Results</h4>

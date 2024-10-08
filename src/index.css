@@ -43,3 +43,7 @@ code {
 .justify-content-start{
   justify-content: center  !important;
 }
+.bg-white{
+  --bs-bg-opacity: 1;
+  background-color: rgb(123 186 211 / 49%) !important;
+}

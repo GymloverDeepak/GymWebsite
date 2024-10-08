@@ -2,45 +2,8 @@ import React from 'react'
 
 function About() {
   return (<>
-    <body classNameName="bg-white">
-  
-    {/* <div className="container-fluid p-0 nav-bar">
-        <nav className="navbar navbar-expand-lg bg-none navbar-dark py-3">
-            <a href="" className="navbar-brand">
-                <h1 className="m-0 display-4 font-weight-bold text-uppercase text-white">Gymlover</h1>
-            </a>
-            <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div className="navbar-nav ml-auto p-4 bg-secondary">
-                    <a href="index.html" className="nav-item nav-link">Home</a>
-                    <a href="about.html" className="nav-item nav-link active">About Us</a>
-                    <a href="feature.html" className="nav-item nav-link">Our Features</a>
-                    <a href="className.html" className="nav-item nav-link">Workouts</a>
-                    <div className="nav-item dropdown">
-                        <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Diet- Plan </a>
-                        <div className="dropdown-menu text-capitalize">
-                            <a href="blog.html" className="dropdown-item">Weight-Loss</a>
-                            <a href="single.html" className="dropdown-item">Weight-Gain</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" className="nav-item nav-link">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </div> */}
-   
-            <h4 className="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">About Us</h4>
-            <div className="d-inline-flex">
-                <p className="m-0 text-white"><a className="text-white" href="">Home</a></p>
-                <p className="m-0 text-white px-2">/</p>
-                <p className="m-0 text-white">About Us</p>
-            </div>
-        
-    
-   
-    <div className="container py-5">
+    <body className="bg-white">
+   <div className="container py-5">
         <div className="row align-items-center">
             <div className="col-lg-6">
                 <img className="img-fluid mb-4 mb-lg-0" src="img/about.jpg" alt="Image"/>
@@ -57,7 +20,7 @@ function About() {
                     <div className="col-sm-6">
                         <i className="flaticon-medal display-2 text-primary"></i>
                         <h4 className="font-weight-bold">Award Winning</h4>
-                        <p>Mr Delhi 2023 in Man Physic  Gold Medal in India classNameic in Man Physic</p>
+                        <p>Mr Delhi 2023 in Man Physique  Gold Medal in India classNameic in Man Physique</p>
                     </div>
                 </div>
                 <a href="" className="btn btn-lg px-4 btn-outline-primary">Learn More</a>
@@ -72,9 +35,9 @@ function About() {
                     <i className="flaticon-training display-3 text-primary mr-3"></i>
                     <div className="">
                         <h2 className="text-white mb-3">Progression</h2>
-                        <p> I achieved my first Goal in 2023 when i am announced Mr. Delhi in Man Physic 
+                        <p> I achieved my first Goal in 2023 when i am announced Mr. Delhi in Man Physique 
                         </p>
-                        <p> 2nd  achieved my  Goal in 2023 when i am announced Gold Medal For India classNameic  in Man Physic 
+                        <p> 2nd  achieved my  Goal in 2023 when i am announced Gold Medal For India classNameic  in Man Physique 
                         </p>
                     </div>
                 </div>
