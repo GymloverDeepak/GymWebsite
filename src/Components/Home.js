@@ -223,7 +223,7 @@ function Home() {
                       href="https://www.youtube.com/@gymloverdeepak/videos"
                       className="btn btn-lg px-4 btn-outline-primary"
                     >
-                      Click Here{" "}
+                      Click Here
                     </a>
                   </div>
                 </div>

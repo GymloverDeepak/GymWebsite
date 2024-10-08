@@ -18,7 +18,7 @@ function Feedback() {
             <div className="col-12 py-4 container">
                 <h3 className="mb-4 font-weight-bold">3 Comments</h3>
                 <div className="media mb-4">
-                    <img src="img/user.jpg" alt="Image" className="mr-3 mt-1 rounded-circle" style={{width:"60px"}}/>
+                    <img src="img/user.jpg" alt="Image1" className="mr-3 mt-1 rounded-circle" style={{width:"60px"}}/>
                     <div className="media-body">
                         <h4>GymloverDeepak <small><i>01 Jan 2023 at 12:00pm</i></small></h4>
                       <p> Thanks </p>
@@ -26,14 +26,14 @@ function Feedback() {
                     </div>
                 </div>
                 <div className="media mb-4">
-                    <img src="img/user.jpg" alt="Image" className="mr-3 mt-1 rounded-circle"
+                    <img src="img/user.jpg" alt="Image2" className="mr-3 mt-1 rounded-circle"
                         style={{width:"60px"}}/>
                     <div className="media-body">
                         <h4>GymloverDeepak <small><i>01 Jan 2023 at 12:00pm</i></small></h4>
                        <p>With'in some days upload new Videos </p>
                         <button className="btn btn-sm btn-dark">Reply</button>
                         <div className="media mt-4">
-                            <img src="img/user.jpg" alt="Image" className="mr-3 mt-1 rounded-circle"
+                            <img src="img/user.jpg" alt="Image3" className="mr-3 mt-1 rounded-circle"
                                 style={{width:"60px"}}/>
                             <div className="media-body">
                                 <h4>GymloverDeepak <small><i>01 Jan 2023 at 12:00pm</i></small></h4>

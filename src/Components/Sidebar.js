@@ -28,7 +28,7 @@ const Header = () => {
         {/* Collapsible content */}
         <div
           className="collapse navbar-collapse justify-content-between"
-          id="navbarCollapse" style={{paddingLeft: "131px"}}
+          id="navbarCollapse" style={{paddingLeft: "37px"}}
         >
           <ul className="navbar-nav ml-auto p-3 bg-secondary" 
             style={{
