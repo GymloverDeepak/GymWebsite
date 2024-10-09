@@ -1128,10 +1128,6 @@ function Home() {
               </p>
             </div>
           </div> */}
-
-        <a href="#" className="btn btn-outline-primary back-to-top">
-          <i className="fa fa-angle-double-up"></i>
-        </a>
       </div>
     </>
   );

@@ -106,6 +106,9 @@ function Footer() {
           <a className="text-white font-weight-bold">GymloverDeepak</a>
         </p>
       </div>
+       <a href="#" className="btn  back-to-top" style={{paddingLeft: "829px"}}>
+          <i className="fa fa-angle-double-up"></i>
+        </a>
     </div>
   );
 }
