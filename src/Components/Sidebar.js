@@ -6,7 +6,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-dark">
         <a href="/" className="navbar-brand">
           <h1
-            className="m-0 display-4 text-uppercase new6"
+            className="m-0 display-6 text-uppercase new6"
           >
             ULTIMATE-FITNESS-GYM
           </h1>
@@ -28,7 +28,7 @@ const Header = () => {
         {/* Collapsible content */}
         <div
           className="collapse navbar-collapse justify-content-between"
-          id="navbarCollapse" style={{paddingLeft: "50px"}}
+          id="navbarCollapse" style={{paddingLeft: "90px"}}
         >
           <ul className="navbar-nav ml-auto  bg-secondary" 
             style={{

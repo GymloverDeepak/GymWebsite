@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .invalid-feedback,
 .empty-feedback {
   display: none;
@@ -28,22 +29,79 @@ code {
 .was-validated :invalid {
   border-color: #dc3545;
 }
-.footer, .page-header, .subscribe {
+
+.footer,
+.page-header,
+.subscribe {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../public/img/bg.jpg);
   background-size: cover;
 }
-.container-fluid,.container-lg,.container-md,.container-sm,.container-xl{
-  width:100%;
-  padding-right:15px;
-  padding-left:15px;
-  margin-right:auto;
-  margin-left:auto
+
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.justify-content-start{
-  justify-content: center  !important;
+.justify-content-start {
+  justify-content: center !important;
 }
-.bg-white{
+
+.bg-white {
   --bs-bg-opacity: 1;
-  background-color: rgb(123 186 211 / 49%) !important;
+  background-color: rgb(123, 186, 211, 0.49) !important;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .container-lg {
+    width: 100%; /* Full width on large screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .container-md {
+    width: 100%; /* Full width on medium screens */
+  }
+
+  .footer,
+  .page-header,
+  .subscribe {
+    padding: 20px; /* Add padding for smaller devices */
+  }
+}
+
+@media (max-width: 768px) {
+  .container-sm {
+    width: 100%; /* Full width on small screens */
+  }
+
+  body {
+    font-size: 14px; /* Reduce font size for better readability on mobile */
+  }
+
+  .footer,
+  .page-header,
+  .subscribe {
+    background-position: center; /* Center background image */
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-right: 10px; /* Adjust padding for very small devices */
+    padding-left: 10px;
+  }
+
+  .footer,
+  .page-header,
+  .subscribe {
+    background-size: contain; /* Adjust background size for very small screens */
+  }
 }
