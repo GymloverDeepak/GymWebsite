@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 // import loader from "../Components/loader.gif";
 import Mylogo from "../Components/Mylogo.png";
 function News() {
@@ -267,27 +267,29 @@ function News() {
     }
   ]
   );
-//   const [error, setError] = useState(null);
-//   const [loading, setLoading] = useState(true);
+  const [news,setNews]=useState([])
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 //   const apiUrl =
 //     "https://newsapi.org/v2/top-headlines?country=us&apiKey=c9165c72651c48f687d9ed5f85e5f4a7";
+ 
+const newsApiUrl ="https://newsdata.io/api/1/news?apikey=pub_557360a97618261c6bfc1a5c905e95207183e&q=news&country=in&language=en&category=crime,education,health,top,world"
 
-
-//   useEffect(() => {
-//     // Fetch data when the component is mounted
-//     axios
-//       .get(apiUrl)
-//       .then((response) => {
-//         // Handle the response
-//         setData(response.data.articles);
-//         console.log("response", response.data.data.articles);
-//       })
-//       .catch((error) => {
-//         // Handle error
-//         setError(error);
-//         setLoading(false);
-//       });
-//   }, []);
+  useEffect(() => {
+    // Fetch data when the component is mounted
+    axios
+      .get(newsApiUrl)
+      .then((response) => {
+        // Handle the response
+        setNews(response.data.results);
+        console.log("response", response.data.results);
+      })
+      .catch((error) => {
+        // Handle error
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
   return (
     <div className="bg-white">
       <div className=" my-3 bg-white" >
@@ -328,7 +330,43 @@ function News() {
           </div>
           ))}
         </div>
-        
+        <div className="row">
+         {news.map((box) => (
+          <div className=" col-md-3" key={box.id}>
+              <div className="card">
+                <img
+                  src={box.image_url ? box.image_url : Mylogo}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    {box.title ? box.title.slice(0, 50) : "."}...
+                    <span className="badge text-bg-success">
+                      {box.source_name}
+                    </span>
+                  </h5>
+                  <p className="card-text">{box.description ? box.description.slice(0, 100):"."}.</p>
+                  <p className="card-text">
+                    <small className="text-muted">
+                      By:-{box.author ? box.author : "GymaloverDeepak"} . On
+                      :- {new Date(box.pubDate).toGMTString()}
+                    </small>
+                  </p>
+                  <a
+                    href={box.link}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="btn btn-sm btn-primary"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            
+          </div>
+          ))}
+        </div>
       </div>
     </div>
   );
