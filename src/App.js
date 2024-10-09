@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Weight_loss from "./Components/Weight_loss";
 import Weight_Gain from "./Components/Weight_Gain";
 import Feedback from "./Components/Feedback";
-import Featurs from "./Components/Featurs";
+import News from "./Components/News";
 function App() {
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/weight-loss" element={<Weight_loss />} />
           <Route path="/weight-gain" element={<Weight_Gain />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/features" element={<Featurs />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </Router>
     </>

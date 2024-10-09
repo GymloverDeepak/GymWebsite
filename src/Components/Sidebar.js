@@ -28,13 +28,15 @@ const Header = () => {
         {/* Collapsible content */}
         <div
           className="collapse navbar-collapse justify-content-between"
-          id="navbarCollapse" style={{paddingLeft: "37px"}}
+          id="navbarCollapse" style={{paddingLeft: "50px"}}
         >
-          <ul className="navbar-nav ml-auto p-3 bg-secondary" 
+          <ul className="navbar-nav ml-auto  bg-secondary" 
             style={{
               width: "100%",
               borderRadius: "37px",
+              wordSpacing: "3px",
               fontWeight: "bold",
+              padding:"5px 139px 4px 102px "
             }}>
             
             {/* Navigation links */}
@@ -49,8 +51,8 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/features" className="nav-link">
-                Our Features
+              <Link to="/news" className="nav-link">
+                latest-news
               </Link>
             </li>
             <li className="nav-item">
@@ -84,7 +86,6 @@ const Header = () => {
                 </li>
               </ul>
             </li>
-
             <li className="nav-item">
               <Link to="/contact" className="nav-link">
                 Contact
@@ -94,6 +95,11 @@ const Header = () => {
               <Link to="/feedback" className="nav-link">
                 Feedback
               </Link>
+            </li>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li className="nav-item">
+            <img src="img/profile.avif" alt="Image2" className="mr-3 mt-1 rounded-circle"
+                        style={{width:"40px",height:"40px"}}/>
             </li>
           </ul>
         </div>
