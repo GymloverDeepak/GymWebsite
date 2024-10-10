@@ -9,6 +9,7 @@ import Weight_loss from "./Components/Weight_loss";
 import Weight_Gain from "./Components/Weight_Gain";
 import Feedback from "./Components/Feedback";
 import News from "./Components/News";
+import Userform from "./Components/Userform";
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/weight-gain" element={<Weight_Gain />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/news" element={<News />} />
+          <Route path="/user" element={<Userform />} />
         </Routes>
       </Router>
     </>

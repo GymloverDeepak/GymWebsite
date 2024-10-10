@@ -96,6 +96,11 @@ const Header = () => {
                 Feedback
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/user" className="nav-link">
+                users
+              </Link>
+            </li>
             &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li className="nav-item">
             <img src="img/profile.avif" alt="Image2" className="mr-3 mt-1 rounded-circle"
