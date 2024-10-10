@@ -96,10 +96,29 @@ const Header = () => {
                 Feedback
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/user" className="nav-link">
-                users
+            <li className="nav-item dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                User-maintain
               </Link>
+              <ul className="dropdown-menu text-capitalize">
+                <li>
+                  <Link to="/members" className="dropdown-item">
+                    Members-Data
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/newmember" className="dropdown-item">
+                    Create-New-Member
+                  </Link>
+                </li>
+              </ul>
             </li>
             &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li className="nav-item">
