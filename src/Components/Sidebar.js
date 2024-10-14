@@ -15,11 +15,11 @@ const Header = () => {
     <div className="container-fluid p-0 nav-ba bg-white mynavheader">
       <nav className="navbar navbar-expand-lg navbar-dark" style={{    width: "fit-content"}}>
         <a href="/" className="navbar-brand">
-          <h1 className="m-0 display-6 text-uppercase new6" style={{paddingLeft: "96px",color:"Red",textShadow: "1px 1px yellow"}}>
+          <h1 className="m-0 display-6 text-uppercase new6" style={{paddingLeft: "90px",color:"Red",textShadow: "1px 1px yellow"}}>
             ULTIMATE-FITNESS-GYM
           </h1>
         </a>
-
+&nbsp;&nbsp;
         {/* Toggler button for small screens */}
         <button
           className="navbar-toggler"

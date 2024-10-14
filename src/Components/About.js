@@ -1,8 +1,8 @@
 import React from 'react'
 
 function About() {
-  return (<div className="bg-white">
-   <div className="container py-5">
+  return (<div className="bg-white" style={{ marginTop: "80px"}}>
+   <div>
         <div className="row align-items-center">
             <div className="col-lg-6">
                 <img className="img-fluid mb-4 mb-lg-0" src="img/about.jpg" alt="Image"/>

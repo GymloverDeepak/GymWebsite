@@ -125,6 +125,7 @@ code {
 
 .navbar-toggler {
   border-color: rgba(22, 205, 74, 0.1);
+  width: max-content;
 }
 .navbar-dark .navbar-toggler-icon {
   background-color: #000;
@@ -216,6 +217,16 @@ ul.navbar-nav .dropdown-menu {
 @media (max-width: 480px) {
   .mynavheader {
     width: "fit-content" /* Optional: Add padding for mobile */
+  }
+}
+@media (max-width: 480px) {
+  .navbar-nav {
+    width: "50%" /* Optional: Add padding for mobile */
+  }
+}
+@media (max-width: 290px) {
+  .navbar-nav {
+    width: "50%" /* Optional: Add padding for mobile */
   }
 }
 @media (max-width: 290px) {
