@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className="container-fluid p-0 nav-ba bg-white mynavheader">
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{    width: "fit-content"}}>
         <a href="/" className="navbar-brand">
           <h1 className="m-0 display-6 text-uppercase new6" style={{paddingLeft: "96px",color:"Red",textShadow: "1px 1px yellow"}}>
             ULTIMATE-FITNESS-GYM
@@ -30,7 +30,7 @@ const Header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" style={{color:"red"}}></span>
         </button>
 
         {/* Collapsible content */}

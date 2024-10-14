@@ -124,13 +124,8 @@ code {
 }
 
 .navbar-toggler {
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(22, 205, 74, 0.1);
 }
-
-.navbar-toggler-icon {
-  background-image: none;
-}
-
 .navbar-dark .navbar-toggler-icon {
   background-color: #000;
 }
@@ -215,5 +210,17 @@ ul.navbar-nav .dropdown-menu {
 
   ul.navbar-nav li a {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mynavheader {
+    height: 40vh; /* Further reduce height for mobile devices */
+    padding: 10px; /* Optional: Add padding for mobile */
+  }
+}
+@media (max-width: 290px) {
+  .mynavheader {
+    width: 30px;;
   }
 }

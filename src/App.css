@@ -14,7 +14,7 @@
   }
 }
 
-/* .App-header {
+.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -23,7 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-} */
+}
 
 .App-link {
   color: #61dafb;
@@ -42,9 +42,7 @@
   color: #e31c25 !important;
 }
 
-/* .navbar-toggler {
-  background-color: #000;
-} */
+
 
 .gain-header {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../public/img/gain.png);
@@ -95,29 +93,7 @@
   }
 }
 
-@media (max-width: 480px) {
-  .App-header {
-    font-size: calc(10px + 4vmin); /* Even larger font for very small screens */
-  }
 
-  .App-logo {
-    height: 25vmin; /* Smaller logo on very small screens */
-  }
-
-  .new6 {
-    font-size: 1em; /* Adjust font size */
-  }
-
-  .gain-header,
-  .loss-header,
-  .workout-header {
-    height: 150px; /* Further reduce height for mobile */
-  }
-
-  .navbar-toggler {
-    padding: 8px; /* Adjust padding */
-  }
-}
 .mynavheader{
   position: fixed;
   top: 0;
