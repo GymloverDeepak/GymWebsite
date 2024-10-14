@@ -8,15 +8,14 @@ const Header = () => {
     console.log("Local storage cleared!");
 
     // Optionally, redirect or perform other actions after logout
-    window.location.href = '/login'; // Redirect to login page, for example
+    window.location.href = '/login'; // Redirect to login page
   };
+
   return (
     <div className="container-fluid p-0 nav-ba bg-white mynavheader">
       <nav className="navbar navbar-expand-lg navbar-dark">
         <a href="/" className="navbar-brand">
-          <h1
-            className="m-0 display-6 text-uppercase new6"
-          >
+          <h1 className="m-0 display-6 text-uppercase new6" style={{paddingLeft: "96px",color:"Red",textShadow: "1px 1px yellow"}}>
             ULTIMATE-FITNESS-GYM
           </h1>
         </a>
@@ -35,19 +34,17 @@ const Header = () => {
         </button>
 
         {/* Collapsible content */}
-        <div
-          className="collapse navbar-collapse justify-content-between"
-          id="navbarCollapse" style={{paddingLeft: "90px"}}
-        >
-          <ul className="navbar-nav ml-auto  bg-secondary" 
+        <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <ul
+            className="navbar-nav ml-auto bg-secondary"
             style={{
               width: "100%",
               borderRadius: "37px",
               wordSpacing: "3px",
               fontWeight: "bold",
-              padding:"5px 139px 4px 102px "
-            }}>
-            
+              padding: "5px 139px 4px 102px",
+            }}
+          >
             {/* Navigation links */}
             <li className="nav-item">
               <Link to="/" className="nav-link active">
@@ -61,7 +58,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link to="/news" className="nav-link">
-                latest-news
+                Latest News
               </Link>
             </li>
             <li className="nav-item">
@@ -80,7 +77,7 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Diet-Plan
+                Diet Plan
               </Link>
               <ul className="dropdown-menu text-capitalize">
                 <li>
@@ -105,7 +102,7 @@ const Header = () => {
                 Feedback
               </Link>
             </li>
-             &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li className="nav-item dropdown">
               <Link
                 to="#"
@@ -115,35 +112,39 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                 <img src="img/profile.avif" alt="Image2" className="mr-3 mt-1 rounded-circle"
-                        style={{width:"40px",height:"40px"}}/>
+                <img
+                  src="img/profile.avif"
+                  alt="Image2"
+                  className="mr-3 mt-1 rounded-circle"
+                  style={{ width: "40px", height: "40px" }}
+                />
               </Link>
               <ul className="dropdown-menu text-capitalize">
                 <li>
                   <Link to="/members" className="dropdown-item">
-                    Members-Data
+                    Members Data
                   </Link>
                 </li>
                 <li>
                   <Link to="/newmember" className="dropdown-item">
-                    Create-New-Member
+                    Create New Member
                   </Link>
-                </li> {uuid?.length > 0 ?
-                <li>
-                <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
-                </li>:
-                <li>
-                <Link to="/login" className="dropdown-item btn btn-primary">
-                    login
-                  </Link>
-                </li>}
+                </li>
+                {uuid?.length > 0 ? (
+                  <li>
+                    <button className="btn btn-primary" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/login" className="dropdown-item btn btn-primary">
+                      Login
+                    </Link>
+                  </li>
+                )}
               </ul>
             </li>
-            {/* &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li className="nav-item dropdown">
-            <img src="img/profile.avif" alt="Image2" className="mr-3 mt-1 rounded-circle"
-                        style={{width:"40px",height:"40px"}}/>
-            </li> */}
           </ul>
         </div>
       </nav>
