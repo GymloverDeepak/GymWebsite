@@ -50,19 +50,36 @@ export const FirebaseProvider = (props) => {
         console.log(errorCode, errorMessage);
       });
   };
-  const addUsers = (key, newData) => {
+//   const addUsers = (key, newData) => {
+//     set(ref(db, `users/${key}`), {
+//       name: newData.name,
+//       address: newData.address,
+//       payStatus: newData.payStatus,
+//       payMode:newData.payMode,
+//       email: newData.email,
+//       age: newData.age,
+//       id:newData.id
+//     });
+//     alert("Success")
+   
+//     console.log("addUsers", key, newData);
+//   };
+const addUsers = (key, formData) => {
     set(ref(db, `users/${key}`), {
-      name: newData.name,
-      address: newData.address,
-      payStatus: newData.payStatus,
-      payMode:newData.payMode,
-      email: newData.email,
-      age: newData.age,
-      id:newData.id
+      name: formData.name,
+      address: formData.address,
+      totalFees: formData.totalFees,
+      payMent_Mode:formData.payMent_Mode,
+      email: formData.email,
+      dob: formData.dob,
+      id:formData.id,   
+      fatherName:formData.fatherName,
+      gender:formData.gender,
+      phone:formData.phone
     });
     alert("Success")
    
-    console.log("addUsers", key, newData);
+    console.log("addUsers", key, formData);
   };
   return (
     <FirebaseContext.Provider value={{ userLogin, addUsers, userSignup }}>
