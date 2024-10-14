@@ -215,12 +215,11 @@ ul.navbar-nav .dropdown-menu {
 
 @media (max-width: 480px) {
   .mynavheader {
-    height: 40vh; /* Further reduce height for mobile devices */
-    padding: 10px; /* Optional: Add padding for mobile */
+    width: "fit-content" /* Optional: Add padding for mobile */
   }
 }
 @media (max-width: 290px) {
   .mynavheader {
-    width: 30px;;
+    width: "fit-content"
   }
 }
