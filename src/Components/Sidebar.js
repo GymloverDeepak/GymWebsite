@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="container-fluid p-0 nav-ba bg-white">
+    <div className="container-fluid p-0 nav-ba bg-white mynavheader">
       <nav className="navbar navbar-expand-lg navbar-dark">
         <a href="/" className="navbar-brand">
           <h1
@@ -105,7 +105,7 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                User-maintain
+                User-Maintance
               </Link>
               <ul className="dropdown-menu text-capitalize">
                 <li>

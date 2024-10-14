@@ -142,7 +142,7 @@ Muscle size increases when a person continually challenges the muscles to deal w
             </div>
             <div className="col-md-6 p-0">
                 <div className="gym-className-box d-flex flex-column align-items-start justify-content-center bg-secondary text-left text-white py-5 px-5">
-                    <img className="img-fluid mb-4 mb-lg-0" src="img/Shoulder.jpg" alt="Image"/>
+                    <img className="img-fluid mb-4 mb-lg-0" src="img/naveen.jpg" alt="Image"/>
                     <h3 className="display-4 mb-3 text-white font-weight-bold">Shoulder Workouts</h3>
                     <li>Push-Press</li>
                         <li>Military Press</li>

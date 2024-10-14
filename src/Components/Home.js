@@ -861,7 +861,7 @@ function Home() {
             </div>
             <div className="col-lg-3 col-md-6 mb-5">
               <div className="card border-0 bg-secondary text-center text-white">
-                <img className="card-img-top" src="img/team-3.jpg" alt="" />
+                <img className="card-img-top" src="img/naveen1.jpg" alt="" />
                 <div className="card-social d-flex align-items-center justify-content-center">
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
@@ -873,27 +873,27 @@ function Home() {
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
                     style={{ width: "40px", height: "40px" }}
-                    href="https://www.facebook.com/deepak.kataria.94009?mibextid=ZbWKwL"
+                    href="https://www.youtube.com/watch?v=XL5ZFEy6KDc"
                   >
                     <i className="fab fa-facebook-f"></i>
                   </a>
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
                     style={{ width: "40px", height: "40px" }}
-                    href="https://www.youtube.com/channel/UC7fJQmyoqieFBP7nM_SttFg"
+                    href="https://www.youtube.com/watch?v=XL5ZFEy6KDc"
                   >
                     <i className="fab fa-youtube"></i>
                   </a>
                   <a
                     className="btn btn-outline-light rounded-circle text-center mr-2 px-0"
                     style={{ width: "40px", height: "40px" }}
-                    href="https://instagram.com/i_gymlover_deepak?igshid=ZGUzMzM3NWJiOQ=="
+                    href="https://www.instagram.com/naveendagar__?igsh=MTEycTZ1eHg0OWduZg=="
                   >
                     <i className="fab fa-instagram"></i>
                   </a>
                 </div>
                 <div className="card-body bg-secondary">
-                  <h4 className="card-title text-primary">Gymlover</h4>
+                  <h4 className="card-title text-primary">Naveen</h4>
                   <p className="card-text">Trainer</p>
                 </div>
               </div>

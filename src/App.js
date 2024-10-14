@@ -11,6 +11,8 @@ import Feedback from "./Components/Feedback";
 import News from "./Components/News";
 import Userform from "./Components/Userform";
 import Users from "./Components/Users";
+import PrivateRoute from "./Components/PrivateRoute";
+import NormalLogin from "./Components/NormalLogin";
 function App() {
   return (
     <>
@@ -25,8 +27,25 @@ function App() {
           <Route path="/weight-gain" element={<Weight_Gain />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/news" element={<News />} />
-          <Route path="/newmember" element={<Userform />} />
-          <Route path="/members" element={<Users />} />
+          <Route path="/login" element={<NormalLogin />} />
+          <Route
+            path="/newmember"
+            element={
+              <PrivateRoute>
+                <Userform />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/members"
+            element={
+              <PrivateRoute>
+                <Users />
+              </PrivateRoute>
+            }
+          />
+          {/* <Route path="/newmember" element={<Userform />} />
+          <Route path="/members" element={<Users />} /> */}
         </Routes>
       </Router>
     </>

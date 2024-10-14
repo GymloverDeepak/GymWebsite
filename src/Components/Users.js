@@ -54,7 +54,6 @@ function Users() {
       
   return (
     <div>
-      <h3>DataTable Example</h3>
       <DataTable
         title="User Data"
         columns={columns}
