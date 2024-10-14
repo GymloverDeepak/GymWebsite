@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import loader from "../Components/loader.gif";
+import loader from "../Components/loader.gif";
 import Mylogo from "../Components/Mylogo.png";
 function News() {
   const [data, setData] = useState(
@@ -268,6 +268,7 @@ function News() {
   ]
   );
   const [news,setNews]=useState([])
+  const [latNews,setLatNews]=useState([])
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 //   const apiUrl =
@@ -275,13 +276,16 @@ function News() {
  
 const newsApiUrl ="https://newsdata.io/api/1/news?apikey=pub_557360a97618261c6bfc1a5c905e95207183e&q=news&country=in&language=en&category=crime,education,health,top,world"
 
+const urlApi="https://newsdata.io/api/1/news?apikey=pub_557360a97618261c6bfc1a5c905e95207183e&q=news&country=in&language=en&category=other,environment,lifestyle,politics,technology"
+
   useEffect(() => {
+    // newS()
     // Fetch data when the component is mounted
     axios
       .get(newsApiUrl)
       .then((response) => {
         // Handle the response
-        setNews(response.data.results);
+        setLatNews(response.data.results);
         console.log("response", response.data.results);
       })
       .catch((error) => {
@@ -290,46 +294,27 @@ const newsApiUrl ="https://newsdata.io/api/1/news?apikey=pub_557360a97618261c6bf
         setLoading(false);
       });
   }, []);
-  return (
-    <div className="bg-white">
+//  const newS =() =>{
+//   axios
+//   .get(urlApi)
+//   .then((response) => {
+//     // Handle the response
+//     setNews(response.data.results);
+//     console.log("response", response.data.results);
+//   })
+//   .catch((error) => {
+//     // Handle error
+//     setError(error);
+//     setLoading(false);
+//   });
+//  }
+
+  return (<>{
+    loading ?  <div className='text-center'>
+      <img className='my-3' src={loader} alt="loading" />
+      <h3>loading...</h3>
+      </div> :  <div className="bg-white">
       <div className=" my-3 bg-white" >
-         <div className="row">
-         {data.map((item) => (
-          <div className=" col-md-3" key={item.id}>
-              <div className="card">
-                <img
-                  src={item.urlToImage ? item.urlToImage : Mylogo}
-                  className="card-img-top"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    {item.title ? item.title.slice(0, 50) : "."}...
-                    <span className="badge text-bg-success">
-                      {item.source.name}
-                    </span>
-                  </h5>
-                  <p className="card-text">{item.description ? item.description.slice(0, 100):"."}.</p>
-                  <p className="card-text">
-                    <small className="text-muted">
-                      By:-{item.author ? item.author : "GymaloverDeepak"} . On
-                      :- {new Date(item.publishedAt).toGMTString()}{" "}
-                    </small>
-                  </p>
-                  <a
-                    href={item.url}
-                    rel="noreferrer"
-                    target="_blank"
-                    className="btn btn-sm btn-primary"
-                  >
-                    Read more
-                  </a>
-                </div>
-              </div>
-            
-          </div>
-          ))}
-        </div>
         <div className="row">
          {news.map((box) => (
           <div className=" col-md-3" key={box.id}>
@@ -367,8 +352,85 @@ const newsApiUrl ="https://newsdata.io/api/1/news?apikey=pub_557360a97618261c6bf
           </div>
           ))}
         </div>
+         {latNews.map((box) => (
+          <div className=" col-md-3" key={box.id}>
+              <div className="card">
+                <img
+                  src={box.image_url ? box.image_url : Mylogo}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    {box.title ? box.title.slice(0, 50) : "."}...
+                    <span className="badge text-bg-success">
+                      {box.source_name}
+                    </span>
+                  </h5>
+                  <p className="card-text">{box.description ? box.description.slice(0, 100):"."}.</p>
+                  <p className="card-text">
+                    <small className="text-muted">
+                      By:-{box.author ? box.author : "GymaloverDeepak"} . On
+                      :- {new Date(box.pubDate).toGMTString()}
+                    </small>
+                  </p>
+                  <a
+                    href={box.link}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="btn btn-sm btn-primary"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            
+          </div>
+          ))}
+        {/* <div className="row">
+         {data.map((item) => (
+          <div className=" col-md-3" key={item.id}>
+              <div className="card">
+                <img
+                  src={item.urlToImage ? item.urlToImage : Mylogo}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    {item.title ? item.title.slice(0, 50) : "."}...
+                    <span className="badge text-bg-success">
+                      {item.source.name}
+                    </span>
+                  </h5>
+                  <p className="card-text">{item.description ? item.description.slice(0, 100):"."}.</p>
+                  <p className="card-text">
+                    <small className="text-muted">
+                      By:-{item.author ? item.author : "GymaloverDeepak"} . On
+                      :- {new Date(item.publishedAt).toGMTString()}{" "}
+                    </small>
+                  </p>
+                  <a
+                    href={item.url}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="btn btn-sm btn-primary"
+                  >
+                    Read more
+                  </a>
+                </div>
+              </div>
+            
+          </div>
+          ))}
+        </div> */}
       </div>
-    </div>
+      {news.length ===0 ?  <h2 className='text-center'> No Data Found !! </h2> : ""}
+     
+      
+    </div> }
+   
+    </>
   );
 }
 
