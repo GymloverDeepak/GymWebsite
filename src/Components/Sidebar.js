@@ -133,7 +133,9 @@ const Header = () => {
                 <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
                 </li>:
                 <li>
-                <button className="btn btn-primary" to="/newmember">Login</button>
+                <Link to="/login" className="dropdown-item btn btn-primary">
+                    login
+                  </Link>
                 </li>}
               </ul>
             </li>
