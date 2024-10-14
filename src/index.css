@@ -102,3 +102,11 @@ code {
     background-size: contain; /* Adjust background size for very small screens */
   }
 }
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}

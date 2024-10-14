@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 function Workout() {
   return (
     <><div className='bg-white'>
-        <div className="container-fluid workout-header mb-5 ">
+      <div className="video-container">
+    <iframe className="background-video" src="https://www.youtube.com/embed/CywaQRHKsTI?autoplay=1&mute=1&loop=1&playlist=CywaQRHKsTI" frameborder="0" allow="autoplay; loop;" allowfullscreen></iframe>
+  </div>
+        {/* <div className="container-fluid workout-header mb-5 ">
         <div className="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style={{minHeight: "400px"}}>
             <h4 className="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Gym Workouts</h4>
             <div className="d-inline-flex">
@@ -11,9 +14,10 @@ function Workout() {
                
             </div>
         </div>
-        </div>
+        </div> */}
     {/* <!-- Gym className Start --> */}
-    <div className="container gym-className mb-5 bg-white" style={{marginTop: "90px"}} >
+  
+    <div className="container gym-className mb-5 bg-white" style={{marginTop: "700px"}} >
         <div className="row px-3">
             <div className="col-md-6 p-0">
                 <div className="gym-className-box d-flex flex-column align-items-end justify-content-center bg-primary text-right text-white py-5 px-5">
