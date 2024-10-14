@@ -47,7 +47,7 @@ function Contact() {
                 noValidate="noValidate"
                 action="https://api.web3forms.com/submit"
                 method="POST"
-                Name="needs-validation"
+                // name="needs-validation"
               >
                 <input
                   type="hidden"

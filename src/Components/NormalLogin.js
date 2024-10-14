@@ -11,19 +11,19 @@ function NormalLogin() {
       user_id: "88da1135-9d3b-4f02-b5ab-84a2735ce713",
     },
     {
-      user_name: "Singh Deepak",
+      user_name: "naveen",
       user_id: "2d5a8e8b-7234-4410-9f91-d1e8ad94a98a",
     },
     {
-      user_name: "sona KHAN",
+      user_name: "pawan dagar",
       user_id: "2d5a8e8b-7234-4410-9f91-d1e8ad94a98a",
     },
     {
-      user_name: "Mahi",
+      user_name: "naveen dagar",
       user_id: "2d5a8e8b-7234-4410-9f91-d1e8ad94a98a",
     },
     {
-      user_name: "sandeep",
+      user_name: "gymlover",
       user_id: "2d5a8e8b-7234-4410-9f91-d1e8ad94a98a",
     },
   ];
@@ -46,7 +46,7 @@ function NormalLogin() {
         setError("");
         localStorage.setItem("uuid", userData.user_id);
         localStorage.setItem("userName", userData.user_name);
-        navigate(`/login`);
+        navigate(`/`);
       } else {
         setError("Invalid Password!");
       }
@@ -102,16 +102,16 @@ function NormalLogin() {
           {error && <div className="alert alert-danger">{error}</div>}
 
           <div className="form-group mb-3" style={{color:"white"}}>
-            <label htmlFor="email" className="form-label">
+            <label htmlFor="text" className="form-label">
              User ID 
             </label>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="email"
-              placeholder="Enter your email"
+              id="username"
+              placeholder="Enter your username"
               value={username}
-          onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
@@ -126,7 +126,7 @@ function NormalLogin() {
               id="password"
               placeholder="Enter your password"
               value={password}
-          onChange={(e) => setPassword(e.target.value)}
+             onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>

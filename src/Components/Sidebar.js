@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const uuid = localStorage.getItem("uuid");
+  const handleLogout = () => {
+    // Clear local storage
+    localStorage.clear();
+    console.log("Local storage cleared!");
+
+    // Optionally, redirect or perform other actions after logout
+    window.location.href = '/login'; // Redirect to login page, for example
+  };
   return (
     <div className="container-fluid p-0 nav-ba bg-white mynavheader">
       <nav className="navbar navbar-expand-lg navbar-dark">
@@ -96,6 +105,7 @@ const Header = () => {
                 Feedback
               </Link>
             </li>
+             &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li className="nav-item dropdown">
               <Link
                 to="#"
@@ -105,7 +115,8 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                User-Maintance
+                 <img src="img/profile.avif" alt="Image2" className="mr-3 mt-1 rounded-circle"
+                        style={{width:"40px",height:"40px"}}/>
               </Link>
               <ul className="dropdown-menu text-capitalize">
                 <li>
@@ -117,14 +128,20 @@ const Header = () => {
                   <Link to="/newmember" className="dropdown-item">
                     Create-New-Member
                   </Link>
-                </li>
+                </li> {uuid?.length > 0 ?
+                <li>
+                <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
+                </li>:
+                <li>
+                <button className="btn btn-primary" to="/newmember">Login</button>
+                </li>}
               </ul>
             </li>
-            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li className="nav-item">
+            {/* &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li className="nav-item dropdown">
             <img src="img/profile.avif" alt="Image2" className="mr-3 mt-1 rounded-circle"
                         style={{width:"40px",height:"40px"}}/>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
