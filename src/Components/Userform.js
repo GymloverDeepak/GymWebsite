@@ -55,6 +55,7 @@ function UserForm() {
     gender: '',
     payMent_Mode: '',
     totalFees:'',
+    paymentStatus:'',
   });
 
   const handleChange = (e) => {

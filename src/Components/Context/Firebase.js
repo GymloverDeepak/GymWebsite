@@ -75,7 +75,8 @@ const addUsers = (key, formData) => {
       id:formData.id,   
       fatherName:formData.fatherName,
       gender:formData.gender,
-      phone:formData.phone
+      phone:formData.phone,
+      paymentStatus:formData.paymentStatus
     });
     alert("Success")
    
