@@ -64,7 +64,7 @@ export const FirebaseProvider = (props) => {
       paymentStatus: dataToSubmit.paymentStatus,
       imageUrl: dataToSubmit.imageUrl || null, // Set to null if undefined
     })
-      .then(() => alert("Wait for Approval!"))
+      .then(() => alert("Wait for Approval !"))
       .catch((error) => {
         console.error("Error writing new user to Firebase Database", error);
       });
