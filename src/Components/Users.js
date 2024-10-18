@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import DataTable from 'react-data-table-component';
-import { getDatabase, ref, onValue, update,remove } from "firebase/database";
+import { getDatabase, ref, onValue, update,remove,set } from "firebase/database";
 import * as XLSX from "xlsx"; // Import the XLSX library
 import { saveAs } from "file-saver"; // Import the file-saver to trigger download
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faSave, faTimes,faBell,faTrash } from '@fortawesome/free-solid-svg-icons'; // Added save and cancel icons
+import { faEdit, faSave, faTimes,faBell,faTrash,faUpload } from '@fortawesome/free-solid-svg-icons'; // Added save and cancel icons
 import Notification from "./Notification";
 function Users() {
   const [userData, setUserData] = useState([]);
@@ -63,7 +63,7 @@ function Users() {
     const updatedRow = formData[row.key];
     update(dbRef, updatedRow)
       .then(() => {
-        console.log("Data updated successfully.");
+        alert( updatedRow.name + " Payment "+  updatedRow.paymentStatus +" succesfully ")
         setEditingRow(null); // Exit edit mode
       })
       .catch((error) => {
@@ -74,6 +74,7 @@ function Users() {
   // Cancel edit mode
   const handleCancelEdit = () => {
     setEditingRow(null); // Exit edit mode without saving
+   
   };
 
   const handleDeleteRow = (row) => {
@@ -152,7 +153,7 @@ function Users() {
             onChange={(e) => handleInputChange(e, row.key, 'paymentStatus')}
           >
             <option value="Pending">Pending</option>
-            <option value="Done">Done</option>
+            <option value="Recieved">Recieved</option>
           </select>
         ) : row.paymentStatus || "-",
       },{
@@ -162,6 +163,7 @@ function Users() {
             <img
               src={row.imageUrl}
               alt={row.name}
+              key={row.name}
               style={{ width: '100px', height: '100px' }}
             />
           </a>
@@ -195,14 +197,54 @@ function Users() {
   ];
 
   // Function to download data as Excel
-  const downloadExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(userData); // Convert JSON to worksheet
-    const workbook = XLSX.utils.book_new(); // Create a new workbook
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Users"); // Add the worksheet to the workbook
-    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" }); // Generate Excel file in memory
-    const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    saveAs(blob, "user_data.xlsx"); // Trigger download using file-saver
+  const truncateText = (text, maxLength = 32766) => {
+    return text.length > maxLength ? text.slice(0, maxLength) : text;
   };
+  
+  const downloadExcel = () => {
+    const truncatedUserData = userData.map(user => ({
+      ...user,
+      address: truncateText(user.address, 1000), // Truncate long addresses to 1000 characters
+      name: truncateText(user.name, 255),
+      imageUrl: truncateText(user.imageUrl, 20), // Truncate name if too long
+      // Add similar truncations for other fields if needed
+    }));
+  
+    const worksheet = XLSX.utils.json_to_sheet(truncatedUserData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Users");
+    const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+    const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    saveAs(blob, "user_data.xlsx");
+  };
+  
+  const importExcel = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: "array" });
+
+        // Assuming the data is on the first sheet
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+        // Save data to Firebase
+        const db = getDatabase();
+        jsonData.forEach((user, index) => {
+          const userKey = `user_${Date.now()}_${index}`; // Generate unique key
+          const dbRef = ref(db, `users/${userKey}`);
+          set(dbRef, user)
+            .then(() => console.log("User imported successfully"))
+            .catch((error) => console.error("Error importing user:", error));
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  };
+
   const [notification, setNotification] = useState({ message: "", type: "success" });
    const [hide,setHide]= useState(false)
   const showNotification = (message, type) => {
@@ -233,6 +275,16 @@ function Users() {
         striped
       />
       <button className="btn btn-primary" onClick={downloadExcel}>Download Excel</button>
+      <label htmlFor="importExcel" className="btn btn-secondary">
+          <FontAwesomeIcon icon={faUpload} /> Import Excel
+        </label>
+        <input
+          id="importExcel"
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={importExcel}
+          style={{ display: "none" }} // Hide the input
+        />
     </div>
   );
 }
