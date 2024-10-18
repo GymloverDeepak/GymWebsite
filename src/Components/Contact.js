@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function Contact() {
   const mapSrc =
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8355.691429029113!2d77.24538201479733!3d28.19026231835199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cd72efb2ef99d%3A0x418202b6060f0c79!2sUltimate%20Fitness%20Gym!5e0!3m2!1sen!2sin!4v1728286450968!5m2!1sen!2sin";
@@ -126,6 +127,11 @@ function Contact() {
                   >
                     Send Message
                   </button>
+                  &nbsp;  &nbsp;
+                  <Link to="/newmember"  className="btn btn-outline-primary"
+                  >
+                    Join Now
+                  </Link>
                   <p
                     className="text-base text-center text-gray-400"
                     id="result"

@@ -24,7 +24,7 @@ function Home() {
                       Best Gym In Town
                     </h2> */}
                   <Link
-                    to="/contact"
+                    to="/newmember"
                     className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5 btn btn-primary"
                   >
                     Join Us Now
@@ -41,7 +41,7 @@ function Home() {
                       Get Body In Shape
                     </h2> */}
                   <Link
-                    to="/contact"
+                    to="/newmember"
                     className="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5 btn btn-primary"
                   >
                     Join Us Now

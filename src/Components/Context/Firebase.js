@@ -1,13 +1,11 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { initializeApp } from "firebase/app";
-
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
-import { useContext } from "react";
 
 const FirebaseContext = createContext(null);
 
@@ -21,9 +19,8 @@ const firebaseConfig = {
   messagingSenderId: "1025159520311",
   appId: "1:1025159520311:web:75665298119d6f58eedfb2",
   measurementId: "G-F701GGLWTR",
-  databaseURL:
-    "https://gym-lover-1d2f3-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
+
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getDatabase(firebaseApp);
 const firebaseAuth = getAuth(firebaseApp);
@@ -40,6 +37,7 @@ export const FirebaseProvider = (props) => {
         console.log(errorCode, errorMessage);
       });
   };
+
   const userLogin = (event, email, pass) => {
     event.preventDefault(); // Prevent the form from submitting in the default way
     signInWithEmailAndPassword(firebaseAuth, email, pass)
@@ -50,38 +48,28 @@ export const FirebaseProvider = (props) => {
         console.log(errorCode, errorMessage);
       });
   };
-//   const addUsers = (key, newData) => {
-//     set(ref(db, `users/${key}`), {
-//       name: newData.name,
-//       address: newData.address,
-//       payStatus: newData.payStatus,
-//       payMode:newData.payMode,
-//       email: newData.email,
-//       age: newData.age,
-//       id:newData.id
-//     });
-//     alert("Success")
-   
-//     console.log("addUsers", key, newData);
-//   };
-const addUsers = (key, formData) => {
+
+  const addUsers = (key, dataToSubmit, userData) => {
     set(ref(db, `users/${key}`), {
-      name: formData.name,
-      address: formData.address,
-      totalFees: formData.totalFees,
-      payMent_Mode:formData.payMent_Mode,
-      email: formData.email,
-      dob: formData.dob,
-      id:formData.id,   
-      fatherName:formData.fatherName,
-      gender:formData.gender,
-      phone:formData.phone,
-      paymentStatus:formData.paymentStatus
-    });
-    alert("Success")
-   
-    console.log("addUsers", key, formData);
+      name: dataToSubmit.name,
+      address: dataToSubmit.address,
+      totalFees: dataToSubmit.totalFees,
+      payMent_Mode: dataToSubmit.payMent_Mode,
+      email: dataToSubmit.email,
+      dob: dataToSubmit.dob,
+      id: userData.length + 1,
+      fatherName: dataToSubmit.fatherName,
+      gender: dataToSubmit.gender,
+      phone: dataToSubmit.phone,
+      paymentStatus: dataToSubmit.paymentStatus,
+      imageUrl: dataToSubmit.imageUrl || null, // Set to null if undefined
+    })
+      .then(() => alert("Wait for Approval!"))
+      .catch((error) => {
+        console.error("Error writing new user to Firebase Database", error);
+      });
   };
+
   return (
     <FirebaseContext.Provider value={{ userLogin, addUsers, userSignup }}>
       {props.children}

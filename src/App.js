@@ -28,22 +28,9 @@ function App() {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/news" element={<News />} />
           <Route path="/login" element={<NormalLogin />} />
+          <Route path="/newmember" element={<Userform />} />
           <Route
-            path="/newmember"
-            element={
-              <PrivateRoute>
-                <Userform />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/members"
-            element={
-              <PrivateRoute>
-                <Users />
-              </PrivateRoute>
-            }
-          />
+            path="/members" element={<PrivateRoute> <Users /></PrivateRoute>}/>
           {/* <Route path="/newmember" element={<Userform />} />
           <Route path="/members" element={<Users />} /> */}
         </Routes>

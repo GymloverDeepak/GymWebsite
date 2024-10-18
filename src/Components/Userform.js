@@ -2,17 +2,11 @@ import { useFirebase } from "../Components/Context/Firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-function UserForm() {
-    let navigate = useNavigate();
-  const myFirebase = useFirebase();
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("soankhan");
-  const [address, setAddress] = useState("");
-  const [age, setAge] = useState("");
-  const [payStatus, setPayStatus] = useState("");
-  const [payMode, setPayMode] = useState("");
-  const [userData, setUserData] = useState([]);
 
+function UserForm() {
+  const myFirebase = useFirebase();
+  const [userData, setUserData] = useState([]);
+let navigate = useNavigate()
   useEffect(() => {
     const db = getDatabase();
     const dbRef = ref(db, "users");
@@ -24,28 +18,13 @@ function UserForm() {
           ...data[key],
         }));
         setUserData(formattedData);
-        console.log("formattedData",formattedData);
+        console.log("formattedData", formattedData);
       }
     });
   }, []);
 
-  const handleSubmit = () => {
-    const newUser = {
-      id: userData.length + 1,
-      name,
-      address,
-      payStatus,
-      payMode,
-      email,
-      age,
-    };
-
-    // Ensure that 'name' is passed as the key to Firebase
-    myFirebase.addUsers(name, newUser);
-    navigate(`/members`);
-  };
   const [formData, setFormData] = useState({
-    id:userData.length + 1,
+    id: userData.length + 1,
     name: '',
     email: '',
     dob: '',
@@ -54,17 +33,18 @@ function UserForm() {
     fatherName: '',
     gender: '',
     payMent_Mode: '',
-    totalFees:'',
-    paymentStatus:'',
+    totalFees: '',
+    paymentStatus: '',
+    image: null,
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, files } = e.target;
 
     // Update formData
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: type === 'file' ? files[0] : value,
     }));
 
     // Update total fees based on payment mode
@@ -72,16 +52,16 @@ function UserForm() {
       let fees = '';
       switch (value) {
         case 'Monthly':
-          fees = '1000';  // Example monthly fee
+          fees = '1000'; // Example monthly fee
           break;
-        case 'Quaterly':
-          fees = '2700';  // Example quarterly fee
+        case 'Quarterly':
+          fees = '2700'; // Example quarterly fee
           break;
         case 'Half-Yearly':
-          fees = '4800';  // Example half-yearly fee
+          fees = '4800'; // Example half-yearly fee
           break;
         case 'Yearly':
-          fees = '9000';  // Example yearly fee
+          fees = '9000'; // Example yearly fee
           break;
         default:
           fees = ''; // Clear if no mode is selected
@@ -95,111 +75,54 @@ function UserForm() {
     }
   };
 
-  const handleSubmit1 = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Data Submitted: ', formData);
-    myFirebase.addUsers(formData.name, formData);
-    navigate(`/members`);
-    // Further processing like sending data to an API or clearing form
+
+    const dataToSubmit = { ...formData };
+
+    // If there's an image, convert it to a base64 string
+    if (formData.image) {
+      const reader = new FileReader();
+      reader.readAsDataURL(formData.image);
+      reader.onloadend = () => {
+        dataToSubmit.imageUrl = reader.result; // Use 'imageUrl' as the property name
+
+        console.log('Form Data Submitted: ', dataToSubmit);
+        myFirebase.addUsers(dataToSubmit.name, dataToSubmit, userData);
+        navigate(`/`);
+        clearForm();
+      };
+      // Return early to prevent submission before image is loaded
+      return;
+    }
+
+    // If no image, submit without the image property
+    console.log('Form Data Submitted: ', dataToSubmit);
+    delete dataToSubmit.image; // Remove the image property if no image was uploaded
+    myFirebase.addUsers(dataToSubmit.name, dataToSubmit, userData);
+    clearForm();
+  };
+
+  const clearForm = () => {
+    setFormData({
+      id: userData.length + 1,
+      name: '',
+      email: '',
+      dob: '',
+      address: '',
+      phone: '',
+      fatherName: '',
+      gender: '',
+      payMent_Mode: '',
+      totalFees: '',
+      paymentStatus: '',
+      image: null,
+    });
   };
 
   return (
-    // <div className="container" style={{ textAlign: "center", marginTop: "50px" }}>
-    //   <div className="row justify-content-center">
-    //     <div className="col-md-4 col-lg-4">
-    //       <form>
-    //         <div className="mb-3">
-    //           <label htmlFor="name" className="form-label">Your Name</label>
-    //           <input
-    //             type="text"
-    //             className="form-control"
-    //             id="name"
-    //             placeholder="Your name"
-    //             required
-    //             value={name}
-    //             onChange={(e) => setName(e.target.value)}
-    //           />
-    //         </div>
-
-    //         <div className="mb-3">
-    //           <label htmlFor="email" className="form-label">Email Address</label>
-    //           <input
-    //             type="email"
-    //             id="email"
-    //             className="form-control"
-    //             placeholder="Your Email Address"
-    //             required
-    //             value={email}
-    //             onChange={(e) => setEmail(e.target.value)}
-    //           />
-    //         </div>
-
-    //         <div className="mb-3">
-    //           <label htmlFor="payment-status" className="form-label">Payment Status (e.g., Done/Pending)</label>
-    //           <input
-    //             type="text"
-    //             className="form-control"
-    //             id="payment-status"
-    //             placeholder="Pending"
-    //             required
-    //             value={payStatus}
-    //             onChange={(e) => setPayStatus(e.target.value)}
-    //           />
-    //         </div>
-
-    //         <div className="mb-3">
-    //           <label htmlFor="paymentmode" className="form-label">Payment Mode</label>
-    //           <input
-    //             type="text"
-    //             className="form-control"
-    //             id="paymentmode"
-    //             placeholder="Payment mode"
-    //             required
-    //             value={payMode}
-    //             onChange={(e) => setPayMode(e.target.value)}
-    //           />
-    //         </div>
-
-    //         <div className="mb-3">
-    //           <label htmlFor="Address" className="form-label">Address</label>
-    //           <input
-    //             type="text"
-    //             className="form-control"
-    //             id="Address"
-    //             placeholder="Your Address"
-    //             required
-    //             value={address}
-    //             onChange={(e) => setAddress(e.target.value)}
-    //           />
-    //         </div>
-
-    //         <div className="mb-3">
-    //           <label htmlFor="age" className="form-label">Age</label>
-    //           <input
-    //             type="text"
-    //             className="form-control"
-    //             id="age"
-    //             placeholder="Enter Your Age"
-    //             required
-    //             value={age}
-    //             onChange={(e) => setAge(e.target.value)}
-    //           />
-    //         </div>
-
-    //         <button
-    //           type="button"
-    //           className="btn btn-primary w-100"
-    //           onClick={handleSubmit}
-    //         >
-    //           Submit
-    //         </button>
-    //       </form>
-    //     </div>
-    //   </div>
-    // </div>
-
     <div className="form-container">
-      <form onSubmit={handleSubmit1}>
+      <form onSubmit={handleSubmit}>
         {/* Name Input */}
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -265,7 +188,7 @@ function UserForm() {
           />
         </div>
 
-        {/* fatherName Input */}
+        {/* Father Name Input */}
         <div className="form-group">
           <label htmlFor="fatherName">Father Name:</label>
           <input
@@ -288,16 +211,16 @@ function UserForm() {
             onChange={handleChange}
             required
           >
-              <option key="gender-default" value="">Select Gender</option>
-    <option key="gender-male" value="male">Male</option>
-    <option key="gender-female" value="female">Female</option>
-    <option key="gender-other" value="other">Other</option>
+            <option key="gender-default" value="">Select Gender</option>
+            <option key="gender-male" value="male">Male</option>
+            <option key="gender-female" value="female">Female</option>
+            <option key="gender-other" value="other">Other</option>
           </select>
         </div>
 
-        {/* payMent_Mode Select */}
+        {/* Payment Mode Select */}
         <div className="form-group">
-          <label htmlFor="payMent_Mode">payMent_Mode:</label>
+          <label htmlFor="payMent_Mode">Payment Mode:</label>
           <select
             id="payMent_Mode"
             name="payMent_Mode"
@@ -305,13 +228,15 @@ function UserForm() {
             onChange={handleChange}
             required
           >
-             <option key="payment-default" value="">Select Payment Mode</option>
-    <option key="payment-monthly" value="Monthly">Monthly</option>
-    <option key="payment-quarterly" value="Quaterly">Quaterly</option>
-    <option key="payment-half-yearly" value="Half-Yearly">Half-Yearly</option>
-    <option key="payment-yearly" value="Yearly">Yearly</option>
+            <option key="payment-default" value="">Select Payment Mode</option>
+            <option key="payment-monthly" value="Monthly">Monthly</option>
+            <option key="payment-quarterly" value="Quarterly">Quarterly</option>
+            <option key="payment-half-yearly" value="Half-Yearly">Half-Yearly</option>
+            <option key="payment-yearly" value="Yearly">Yearly</option>
           </select>
         </div>
+
+        {/* Total Fees */}
         <div className="form-group">
           <label htmlFor="totalFees">Total Fees:</label>
           <input
@@ -322,14 +247,29 @@ function UserForm() {
             readOnly
           />
         </div>
+
+        {/* QR Code Image */}
         <div className="form-group">
-          <img 
+          <img
             src="img/qrcode.jpeg" // Replace with your QR code URL
             alt="QR Code"
             style={{ width: '460px', height: '350px' }}
           />
-           <label style={{textAlign:"center"}}>Amount:- {formData.totalFees}</label>
+          <label style={{ textAlign: "center" }}>Amount: {formData.totalFees}</label>
         </div>
+
+        {/* Image Input */}
+        <div className="form-group">
+          <label htmlFor="image">Upload Image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*" // Accept only image files
+            onChange={handleChange}
+          />
+        </div>
+
         {/* Submit Button */}
         <div className="form-group">
           <button type="submit">Submit</button>

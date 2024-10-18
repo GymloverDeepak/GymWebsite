@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import DataTable from 'react-data-table-component';
-import { getDatabase, ref, onValue, update } from "firebase/database";
+import { getDatabase, ref, onValue, update,remove } from "firebase/database";
 import * as XLSX from "xlsx"; // Import the XLSX library
 import { saveAs } from "file-saver"; // Import the file-saver to trigger download
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faSave, faTimes } from '@fortawesome/free-solid-svg-icons'; // Added save and cancel icons
-
+import { faEdit, faSave, faTimes,faBell,faTrash } from '@fortawesome/free-solid-svg-icons'; // Added save and cancel icons
+import Notification from "./Notification";
 function Users() {
   const [userData, setUserData] = useState([]);
   const [editingRow, setEditingRow] = useState(null); // Track the row being edited
-  const [formData, setFormData] = useState({}); // Form data to hold updated values
-
+  const [formData, setFormData] = useState({});
+  const [filteredData, setFilteredData] = useState([]);  // Form data to hold updated values
   useEffect(() => {
     const db = getDatabase();
     const dbRef = ref(db, "users"); // Assuming you have a 'users' node in your Firebase
@@ -22,6 +22,8 @@ function Users() {
           ...data[key],
         }));
         setUserData(formattedData);
+        const paymentStatusEmpty = formattedData.filter(user => user.paymentStatus === "");
+        setFilteredData(paymentStatusEmpty);
       }
     });
   }, []);
@@ -72,6 +74,23 @@ function Users() {
   // Cancel edit mode
   const handleCancelEdit = () => {
     setEditingRow(null); // Exit edit mode without saving
+  };
+
+  const handleDeleteRow = (row) => {
+    const db = getDatabase();
+    const dbRef = ref(db, `users/${row.key}`);
+    remove(dbRef)
+      .then(() => {
+        alert("User deleted successfully.")
+        console.log("User deleted successfully.");
+        // Optionally update the state to remove the deleted user
+        setUserData(userData.filter(user => user.key !== row.key));
+      })
+      
+      .catch((error) => {
+        alert("Error deleting user")
+        console.error("Error deleting user: ", error);
+      });
   };
 
   const columns = [
@@ -136,24 +155,39 @@ function Users() {
             <option value="Done">Done</option>
           </select>
         ) : row.paymentStatus || "-",
-    },
+      },{
+        name: 'Image',
+        cell: row => (
+          <a href={row.imageUrl} download>
+            <img
+              src={row.imageUrl}
+              alt={row.name}
+              style={{ width: '100px', height: '100px' }}
+            />
+          </a>
+        )
+      },
     {
       name: 'Actions',
-      cell: (row) => 
-        editingRow === row.key ? (
-          <>
-            <button onClick={() => handleSaveRow(row)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "green" }}>
-              <FontAwesomeIcon icon={faSave} /> {/* Save icon */}
-            </button>
-            <button onClick={handleCancelEdit} style={{ background: "transparent", border: "none", cursor: "pointer", color: "red" }}>
-              <FontAwesomeIcon icon={faTimes} /> {/* Cancel icon */}
-            </button>
-          </>
-        ) : (
-          <button onClick={() => handleEditRow(row)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "#007bff" }}>
-            <FontAwesomeIcon icon={faEdit} /> {/* Edit icon */}
+      cell: (row) => editingRow === row.key ? (
+        <>
+          <button onClick={() => handleSaveRow(row)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "green" }}>
+            <FontAwesomeIcon icon={faSave} />
           </button>
-        ),
+          <button onClick={handleCancelEdit} style={{ background: "transparent", border: "none", cursor: "pointer", color: "red" }}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </>
+      ) : (
+        <>
+          <button onClick={() => handleEditRow(row)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "#007bff" }}>
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+          <button onClick={() => handleDeleteRow(row)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "red" }}>
+            <FontAwesomeIcon icon={faTrash} /> {/* Delete icon */}
+          </button>
+        </>
+      ),
       ignoreRowClick: true,
       allowOverflow: true,
       button: true,
@@ -169,9 +203,27 @@ function Users() {
     const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     saveAs(blob, "user_data.xlsx"); // Trigger download using file-saver
   };
-
+  const [notification, setNotification] = useState({ message: "", type: "success" });
+   const [hide,setHide]= useState(false)
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setHide(!hide)
+  };
+  
   return (
     <div>
+     <div className="App" style={{textAlign:"right"}}>
+      <button onClick={() => showNotification( "Success! Data saved.", "success")}>
+        {filteredData.length} Notification  &nbsp;&nbsp;<FontAwesomeIcon icon={faBell} />
+      </button>
+{hide ?  <Notification
+        message={filteredData.length}
+        type={notification.type}
+        duration={1000} // Notification will close automatically after 3 seconds
+        onClose={() => setNotification({ message: "Thankyou !", type: "success" })}
+      />:""}
+     
+    </div>
       <DataTable
         title="User Data"
         columns={columns}
@@ -186,3 +238,5 @@ function Users() {
 }
 
 export default Users;
+
+
