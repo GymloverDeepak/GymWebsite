@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function Contact() {
   const mapSrc =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8355.691429029113!2d77.24538201479733!3d28.19026231835199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cd72efb2ef99d%3A0x418202b6060f0c79!2sUltimate%20Fitness%20Gym!5e0!3m2!1sen!2sin!4v1728286450968!5m2!1sen!2sin";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.5989744500826!2d77.2497443!3d28.1891091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cd75b8f41aa03%3A0xaecb157b891bf5c3!2sUltimate%20fitness%20gym%20dhatir!5e0!3m2!1sen!2sin!4v1729410887675!5m2!1sen!2sin";
   return (
     <div className="bg-white">
       <div className="container pt-5 ">
@@ -36,7 +36,7 @@ function Contact() {
               allowFullScreen=""
               aria-hidden="false"
               tabIndex="0"
-              title="ULTIMATE FITNESS GYM "
+              title="ULTIMATE FITNESS GYM  Dhatir "
             ></iframe>
           </div>
           <div className="col-md-6 pb-4">
